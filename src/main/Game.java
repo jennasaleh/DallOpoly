@@ -19,11 +19,15 @@ public class Game {
 		while(!gameWinner) {
 			players.get(turnCounter++ % players.size()).takeTurn();
 		}
+		
+		
 	}
 	
 	private void setup() {
 		for(int i = 0; i < 5; i++ ) {
 			players.add(new Player("Player" + (i + 1)));
 		}
+		
+		
 	}
 }
