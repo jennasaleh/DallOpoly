@@ -8,6 +8,8 @@ public class Game {
 	private boolean gameWinner = false;
 	
 	private int turnCounter = 0;
+	
+	private Board board;
 
 	public Game() {
 		setup();
@@ -20,7 +22,7 @@ public class Game {
 			players.get(turnCounter++ % players.size()).takeTurn();
 		}
 		
-		
+		board = new Board();
 	}
 	
 	private void setup() {

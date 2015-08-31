@@ -31,7 +31,7 @@ public class DieTest {
 		for(int i = 0; i < 100; i++ ) {
 			int dieRoll = die.roll();
 			
-			if(dieRoll < 1 || dieRoll > 6 ) {
+			if(dieRoll < 1 || dieRoll > die.DEFAULT_NUMBER_OF_FACES ) {
 				return true;
 			}
 		}
