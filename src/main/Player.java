@@ -2,6 +2,10 @@ package main;
 
 public class Player {
 	private String name;
+	
+	private double money;
+	
+	private int position;
 
 	private Die die;
 	

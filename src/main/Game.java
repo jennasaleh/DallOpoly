@@ -19,10 +19,17 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			players.get(turnCounter++ % players.size()).takeTurn();
+			players.get(turnCounter % players.size()).takeTurn();
+			checkForWin(players.get(turnCounter % players.size()), board);
+			
+			turnCounter++;
 		}
 		
 		board = new Board();
+	}
+	
+	public boolean checkForWin(Player p, Board b) {
+		
 	}
 	
 	private void setup() {
