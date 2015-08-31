@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 //Darren
+//JENNA
 
 public class Board {
 	public ArrayList<Tile> tiles = new ArrayList<Tile>();
