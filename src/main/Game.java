@@ -22,7 +22,7 @@ public class Game {
 			Player currentPlayer = players.get(turnCounter % players.size());
 			currentPlayer.takeTurn();
 			int currentPlayerPosition = currentPlayer.getPosition();
-			int currentPlayerTilePrice = board.getTile(currentPlayerPosition).getCost();
+			int currentPlayerTilePrice = board.getTile(currentPlayerPosition % board.getBoardSize()).getCost();
 			Tile currentPlayerTile = board.getTile(currentPlayerPosition % board.getBoardSize());
 			
 			if(currentPlayerTilePrice < currentPlayer.getNetworth() && currentPlayerTile.getOwnedBy() == null) {
