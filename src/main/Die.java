@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Die {
 	public final static int DEFAULT_NUMBER_OF_FACES = 6;
+	public final static int MINIMUM_NUMBER_OF_FACES = 2;
 	
 	private int numberOfFaces = -1;
 
-	public Die() {
+	public Die() throws TooFewDieFacesException {
 		setNumberOfFaces(DEFAULT_NUMBER_OF_FACES);
 	}
 	

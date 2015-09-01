@@ -3,7 +3,7 @@ package main;
 public class Jail extends Tile {
 
 	public Jail(int i) {
-		super(0);
+		super(0,0);
 		// TODO Auto-generated constructor stub
 	}
 	

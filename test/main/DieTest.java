@@ -22,20 +22,32 @@ public class DieTest {
 	
 	@Test
 	public void testDefaultDieValue() {
-		Die die = new Die();
-		Assert.assertEquals("Die does not default to 6", 6, die.DEFAULT_NUMBER_OF_FACES);
+		try {
+			Die die = new Die();
+			Assert.assertEquals("Die does not default to 6", 6, die.DEFAULT_NUMBER_OF_FACES);
+		} catch (TooFewDieFacesException e) {
+			fail(e.getLocalizedMessage());
+		}
+		
 	}
 	
 	@Test
-	public void testDieValues() {
-		Die die = new Die();
-		for(int i = 0; i < 100; i++ ) {
-			int dieRoll = die.roll();
+	public void testDieValueRange() {
+		try {
+			Die die = new Die();
 			
-			if(dieRoll < 1 || dieRoll > die.DEFAULT_NUMBER_OF_FACES ) {
-				fail("Invalid Die Values");
+			for(int i = 0; i < 100; i++ ) {
+				int dieRoll = die.roll();
+				
+				if(dieRoll < 1 || dieRoll > die.DEFAULT_NUMBER_OF_FACES ) {
+					fail("Invalid Die Values");
+				}
 			}
+		} catch (TooFewDieFacesException e) {
+			fail(e.getLocalizedMessage());
 		}
+		
+		
 		
 	}
 

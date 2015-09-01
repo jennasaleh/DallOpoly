@@ -19,17 +19,36 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			players.get(turnCounter % players.size()).takeTurn();
-			checkForWin(players.get(turnCounter % players.size()), board);
+			Player currentPlayer = players.get(turnCounter % players.size());
+			currentPlayer.takeTurn();
+			int currentPlayerPosition = currentPlayer.getPosition();
+			int currentPlayerTilePrice = board.getTile(currentPlayerPosition).getCost();
+			Tile currentPlayerTile = board.getTile(currentPlayerPosition % board.getBoardSize());
+			
+			if(currentPlayerTilePrice < currentPlayer.getNetworth()) {
+				currentPlayerTile.buy(currentPlayer);
+			}
+			
+			//checkForWin(players.get(turnCounter % players.size()), board);
+			
+			delay(1000);
+			
 			
 			turnCounter++;
 		}
 		
-		board = new Board();
 	}
 	
-	public boolean checkForWin(Player p, Board b) {
+	//public boolean checkForWin(Player p, Board b) {
 		
+	//}
+	
+	private void delay(int milliseconds) {
+		try {
+		    Thread.sleep(milliseconds);                 //1000 milliseconds is one second.
+		} catch(InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}	
 	}
 	
 	private void setup() {
@@ -37,6 +56,6 @@ public class Game {
 			players.add(new Player("Player" + (i + 1)));
 		}
 		
-		
+		board = new Board();
 	}
 }

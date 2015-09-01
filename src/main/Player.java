@@ -1,9 +1,11 @@
 package main;
 
 public class Player {
+	private static final int DEFAULT_START_VALUE = 2000;
+	
 	private String name;
 	
-	private double money;
+	private int money;
 	
 	private int position;
 
@@ -11,13 +13,35 @@ public class Player {
 	
 	public Player(String n) {
 		name = n;
-		die = new Die();
+		money = DEFAULT_START_VALUE;
+		position = 0;
+		try {
+			die = new Die();
+		} catch(TooFewDieFacesException e) {
+			System.out.println(e.getLocalizedMessage());
+		}
+		
 		
 		System.out.println(name + " created.");
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public int getNetworth() {
+		return money;
+	}
+	
+	public int getPosition() {
+		return position;
+	}
+	
 	public void takeTurn() {
-		System.out.println(name + " rolled a " + die.roll());
+		int roll = die.roll();
+		position += roll; 
+		
+		System.out.println(name + " rolled a " + roll + " and is at position " + position);
 	}
 
 }

@@ -8,6 +8,11 @@ public class Board {
 
 	public Board() {
 		System.out.println("Board Created");
+		addTiles();
+	}
+	
+	public Tile getTile(int i) {
+		return tiles.get(i);
 	}
 	
 	public int getBoardSize() {
@@ -18,7 +23,7 @@ public class Board {
 		Random r = new Random();
 		
 		for(int i = 0; i < 15; i++ ) {
-			tiles.add(new Tile(r.nextInt() % 200));
+			tiles.add(new Tile(Math.abs((r.nextInt() % 20) * 10),i));
 		}
 		
 		tiles.add(new Jail(0));
