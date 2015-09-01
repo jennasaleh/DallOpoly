@@ -25,7 +25,7 @@ public class Game {
 			int currentPlayerTilePrice = board.getTile(currentPlayerPosition).getCost();
 			Tile currentPlayerTile = board.getTile(currentPlayerPosition % board.getBoardSize());
 			
-			if(currentPlayerTilePrice < currentPlayer.getNetworth()) {
+			if(currentPlayerTilePrice < currentPlayer.getNetworth() && currentPlayerTile.getOwnedBy() == null) {
 				currentPlayerTile.buy(currentPlayer);
 			}
 			
@@ -53,7 +53,7 @@ public class Game {
 	
 	private void setup() {
 		for(int i = 0; i < 5; i++ ) {
-			players.add(new Player("Player" + (i + 1)));
+			players.add(new Player("Player" + i));
 		}
 		
 		board = new Board();

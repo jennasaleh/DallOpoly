@@ -18,6 +18,10 @@ public class Tile {
 		return costToBuy;
 	}
 	
+	public Player getOwnedBy() {
+		return ownedBy;
+	}
+	
 	public void action() {
 		
 	}
