@@ -5,13 +5,16 @@ public class Player {
 	
 	private String name;
 	
+	private int playerId = -1;
+	
 	private int money;
 	
 	private int position;
 
 	private Die die;
 	
-	public Player(String n) {
+	public Player(String n,int i) {
+		playerId = i;
 		name = n;
 		money = DEFAULT_START_VALUE;
 		position = 0;
@@ -25,8 +28,17 @@ public class Player {
 		System.out.println(name + " created.");
 	}
 	
+	public void charge(int m,String type) {
+		System.out.println("	" + name + " charged " + " for " + type + " $" + m + " new balance $" + (money - m));
+		money -= m;
+	}
+	
 	public String getName() {
 		return name;
+	}
+	
+	public int getId() {
+		return playerId;
 	}
 	
 	public int getNetworth() {

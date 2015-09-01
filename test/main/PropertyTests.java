@@ -23,6 +23,7 @@ public class PropertyTests {
 	@Test
 	public void testFailToBuyLowMoney() {
 		try {
+			Tile currentPlayerTile = new Tile(200,0);
 			boolean result = currentPlayerTile.buy(currentPlayer);
 			Assert.assertTrue("Result was " + result, result);
 		} catch (TooLittleMoney e) {

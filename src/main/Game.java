@@ -21,17 +21,13 @@ public class Game {
 		while(!gameWinner) {
 			Player currentPlayer = players.get(turnCounter % players.size());
 			currentPlayer.takeTurn();
-			int currentPlayerPosition = currentPlayer.getPosition();
-			int currentPlayerTilePrice = board.getTile(currentPlayerPosition % board.getBoardSize()).getCost();
-			Tile currentPlayerTile = board.getTile(currentPlayerPosition % board.getBoardSize());
+			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 			
-			if(currentPlayerTilePrice < currentPlayer.getNetworth() && currentPlayerTile.getOwnedBy() == null) {
-				currentPlayerTile.buy(currentPlayer);
-			}
+			currentPlayerTile.populate(currentPlayer);
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(1000);
+			delay(10);
 			
 			
 			turnCounter++;
@@ -53,7 +49,7 @@ public class Game {
 	
 	private void setup() {
 		for(int i = 0; i < 5; i++ ) {
-			players.add(new Player("Player" + i));
+			players.add(new Player("Player" + i,i));
 		}
 		
 		board = new Board();

@@ -23,7 +23,7 @@ public class Board {
 		Random r = new Random();
 		
 		for(int i = 0; i < 15; i++ ) {
-			tiles.add(new Tile(Math.abs((r.nextInt() % 20) * 10),i));
+			tiles.add(new Tile(Math.abs((r.nextInt() % 20) * 10) + 30,i));
 		}
 		
 		tiles.add(new Jail(0));
