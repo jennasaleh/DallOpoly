@@ -23,8 +23,8 @@ public class PropertyTests {
 	@Test
 	public void testFailToBuyLowMoney() {
 		try {
-			//Test here
-			Assert.assertEquals("Message", Expected, Actual);
+			boolean result = currentPlayerTile.buy(currentPlayer);
+			Assert.assertTrue("Result was " + result, result);
 		} catch (TooLittleMoney e) {
 			fail(e.getLocalizedMessage());
 		}
@@ -34,10 +34,11 @@ public class PropertyTests {
 	@Test
 	public void testFailToBuyNotAvailable() {
 		try {
-			//Test here
-			Assert.assertEquals("Message", Expected, Actual);
+			boolean result = currentPlayerTile.buy(currentPlayer);
+			Assert.assertTrue("Result was " + result, result);
 		} catch (PropertyNotAvailable e) {
 			fail(e.getLocalizedMessage());
+		}
 	}
 		
 }
