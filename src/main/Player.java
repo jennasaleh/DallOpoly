@@ -1,6 +1,6 @@
 package main;
 
-import com.sun.prism.paint.Color;
+//import com.sun.prism.paint.Color;
 
 public class Player {
 	private static final int DEFAULT_START_VALUE = 2000;
@@ -16,6 +16,8 @@ public class Player {
 	private int position;
 
 	private Die die;
+	
+	private Bank bank;
 	
 	public Player(String n,int i,String colorIn) {
 		color = colorIn;
@@ -37,9 +39,22 @@ public class Player {
 		return color;
 	}
 	
-	public void charge(int m,String type) {
-		System.out.println("	" + name + " charged " + " for " + type + " $" + m + " new balance $" + (money - m));
-		money -= m;
+	// jenna
+	public void charge(int m,String type) {		
+		if(type == "purchase") {
+			System.out.println("	" + name + " charged " + " for " + type + " $" + m + " - new balance $" + (money - m));
+			bank.payBank(m);
+		}
+		
+		if(type == "rent") {
+			System.out.println("	" + name + " charged " + " $" + m + " - new balance is $" + (money - m));
+		}
+	}
+	
+	// jenna
+	public void payPlayer(int m) {
+		money = money + m;
+		System.out.println(" Player " + name + " was paid $" + m + " - new balance $" + money);
 	}
 	
 	public String getName() {

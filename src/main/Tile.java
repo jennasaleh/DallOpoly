@@ -44,8 +44,10 @@ public class Tile {
 		//Not available for purchase
 		if(p.getId() != ownedBy.getId()) {
 			p.charge(calculateRent(),"rent");
+			ownedBy.payPlayer(calculateRent()); //jenna
+			
 			//Out of Money?
-			boolean IsBankrupt = p.playerIsBankrupt();
+			//boolean IsBankrupt = p.playerIsBankrupt();
 		}
 
 		//Insufficent funds for purchase
