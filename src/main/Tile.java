@@ -32,19 +32,18 @@ public class Tile {
 
 	}
 
-	public boolean populate(Player p) {
+	public boolean populate(Player p,Bank b) {
 		//Available and able to buy
 		if((p.getNetworth() >= costToBuy)  && (ownedBy == null)) {
 			ownedBy = p;
 			System.out.println("	Tile " + tileId + " was purchased by " + p.getName());
-			p.charge(costToBuy,"purchase");
+			p.charge(costToBuy,b);
 			return true;
 		} 
 
 		//Not available for purchase
 		if(p.getId() != ownedBy.getId()) {
-			p.charge(calculateRent(),"rent");
-			ownedBy.payPlayer(calculateRent()); //jenna
+			p.charge(calculateRent(),ownedBy);
 			
 			//Out of Money?
 			//boolean IsBankrupt = p.playerIsBankrupt();

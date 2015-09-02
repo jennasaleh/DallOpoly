@@ -12,6 +12,8 @@ public class Game {
 	private int turnCounter = 0;
 	
 	private Board board;
+	
+	private Bank bank;
 
 	public Game() {
 		setup();
@@ -33,7 +35,7 @@ public class Game {
 			currentPlayer.takeTurn();
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 			
-			currentPlayerTile.populate(currentPlayer);
+			currentPlayerTile.populate(currentPlayer,bank);
 			
 			if(currentPlayer.playerIsBankrupt()) {
 				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
@@ -74,6 +76,8 @@ public class Game {
 		players.add(new Player("Player" + 3,3,"#ff0000"));
 		players.add(new Player("Player" + 4,4,"#00ffff"));
 		players.add(new Player("Player" + 5,5,"#0000ff"));
+		
+		bank = new Bank("Bank",-1,"#000000");
 		
 		board = new Board();
 	}

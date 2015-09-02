@@ -6,21 +6,19 @@ public class Player {
 	//private static final int DEFAULT_START_VALUE = 2000;
 	//debug test
 	private static final int DEFAULT_START_VALUE = 2000;
-	
+
 	private String color;
-	
+
 	private String name;
-	
+
 	private int playerId = -1;
-	
-	private int money;
-	
+
+	protected int money;
+
 	private int position;
 
 	private Die die;
-	
-	private Bank bank;
-	
+
 	public Player(String n,int i,String colorIn) {
 		color = colorIn;
 		playerId = i;
@@ -32,56 +30,50 @@ public class Player {
 		} catch(TooFewDieFacesException e) {
 			System.out.println(e.getLocalizedMessage());
 		}
-		
-		
+
+
 		System.out.println(name + " created.");
 	}
-	
+
 	public String getColor() {
 		return color;
 	}
-	
+
 	// jenna
-	public void charge(int m,String type) {		
-		if(type == "purchase") {
-			System.out.println("	" + name + " charged " + " for " + type + " $" + m + " - new balance $" + (money - m));
-			bank.payBank(m);
-		}
-		
-		if(type == "rent") {
-			System.out.println("	" + name + " charged " + " $" + m + " - new balance is $" + (money - m));
-		}
+	public void charge(int m, Player to) {
+		money -= m;
+		to.pay(m);
 	}
-	
+
 	// jenna
-	public void payPlayer(int m) {
+	public void pay(int m) {
 		money = money + m;
 		System.out.println(" Player " + name + " was paid $" + m + " - new balance $" + money);
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public int getId() {
 		return playerId;
 	}
-	
+
 	public int getNetworth() {
 		return money;
 	}
-	
+
 	public int getPosition() {
 		return position;
 	}
-	
+
 	public void takeTurn() {
 		int roll = die.roll();
 		position = (position + roll) % 40; 
-		
+
 		System.out.println(name + " rolled a " + roll + " and is at position " + position);
 	}
-	
+
 	public boolean playerIsBankrupt() {
 		if (getNetworth() < 0)
 		{
@@ -91,9 +83,9 @@ public class Player {
 		{
 			return false;
 		}
-		
-		
-		
+
+
+
 	}
 
 }
