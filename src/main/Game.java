@@ -22,6 +22,7 @@ public class Game {
 		
 		while(!gameWinner) {
 			gui.draw(board,players);
+
 			
 			
 			Player currentPlayer = players.get(turnCounter % players.size());
@@ -35,8 +36,11 @@ public class Game {
 			currentPlayerTile.populate(currentPlayer);
 			
 			if(currentPlayer.playerIsBankrupt()) {
+				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
+				System.out.println("	Original size: " + players.size());
 				players.remove(currentPlayer.getId());
-				System.out.println(currentPlayer.getName() + " is kicked out!");
+				System.out.println("\n	New size: " + players.size());
+				
 			}
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
