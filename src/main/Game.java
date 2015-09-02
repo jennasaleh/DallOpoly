@@ -3,7 +3,7 @@ package main;
 import java.util.ArrayList;
 
 public class Game {
-	private GUI gui;
+	//private GUI gui;
 	
 	private ArrayList<Player> players = new ArrayList<Player>();
 	
@@ -21,7 +21,7 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			gui.draw(board);
+			//gui.draw(board);
 			
 			
 			Player currentPlayer = players.get(turnCounter % players.size());
@@ -35,8 +35,9 @@ public class Game {
 			currentPlayerTile.populate(currentPlayer);
 			
 			if(currentPlayer.playerIsBankrupt()) {
+				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
 				players.remove(currentPlayer.getId());
-				System.out.println(currentPlayer.getName() + " is kicked out!");
+				
 			}
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
@@ -63,7 +64,7 @@ public class Game {
 	}
 	
 	private void setup() {
-		gui = new GUI();
+		//gui = new GUI();
 		
 		players.add(new Player("Player" + 1,1,"#00ff00"));
 		players.add(new Player("Player" + 2,2,"#ffff00"));
