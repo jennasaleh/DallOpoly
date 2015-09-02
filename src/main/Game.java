@@ -25,6 +25,10 @@ public class Game {
 			
 			
 			Player currentPlayer = players.get(turnCounter % players.size());
+			
+			//Down to 1 Player?
+			//checkforWinner();
+			
 			currentPlayer.takeTurn();
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 			

@@ -64,5 +64,19 @@ public class Player {
 		
 		System.out.println(name + " rolled a " + roll + " and is at position " + position);
 	}
+	
+	public boolean playerIsBankrupt() {
+		if (getNetworth() < 0)
+		{
+			System.out.println("Player " + playerId + " is Bankrupt");
+			return true;
+		}else
+		{
+			return false;
+		}
+		
+		
+		
+	}
 
 }
