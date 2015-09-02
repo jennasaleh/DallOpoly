@@ -35,27 +35,20 @@ public class Tile {
 	public void vacate() {
 		ownedBy = null;
 	}
+	
+	public boolean host(Player p) {
+		p.charge(costToBuy, ownedBy);
+		
+		return false;
+	}
 
 	public boolean populate(Player p,Bank b) {
 		//Available and able to buy
-		if((p.getNetworth() >= costToBuy)  && (ownedBy == null)) {
+		if(p.getNetworth() >= costToBuy ) {
 			ownedBy = p;
 			p.charge(costToBuy,b);
 			return true;
 		} 
-
-		//Not available for purchase
-		if((p.getId() != ownedBy.getId()) && !p.playerIsBankrupt()) {
-			p.charge(calculateRent(),ownedBy);
-			
-			//Out of Money?
-			//boolean IsBankrupt = p.playerIsBankrupt();
-		}
-
-		//Insufficent funds for purchase
-		if((ownedBy == null) && (p.getNetworth() < costToBuy)) {
-			System.out.println("Insufficent funds to buy");
-		}
 
 		return false;
 	}
