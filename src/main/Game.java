@@ -21,7 +21,7 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			gui.draw(board);
+			gui.draw(board,players);
 			
 			
 			Player currentPlayer = players.get(turnCounter % players.size());
@@ -41,7 +41,7 @@ public class Game {
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(10);
+			delay(1000);
 			
 			
 			turnCounter++;

@@ -60,7 +60,7 @@ public class Player {
 	
 	public void takeTurn() {
 		int roll = die.roll();
-		position += roll; 
+		position = (position + roll) % 40; 
 		
 		System.out.println(name + " rolled a " + roll + " and is at position " + position);
 	}
