@@ -21,7 +21,8 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			gui.draw(board);
+			gui.draw(board,players);
+
 			
 			
 			Player currentPlayer = players.get(turnCounter % players.size());
@@ -35,13 +36,16 @@ public class Game {
 			currentPlayerTile.populate(currentPlayer);
 			
 			if(currentPlayer.playerIsBankrupt()) {
+				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
+				System.out.println("	Original size: " + players.size());
 				players.remove(currentPlayer.getId());
-				System.out.println(currentPlayer.getName() + " is kicked out!");
+				System.out.println("\n	New size: " + players.size());
+				
 			}
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(10);
+			delay(1000);
 			
 			
 			turnCounter++;
