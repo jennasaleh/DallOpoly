@@ -34,9 +34,14 @@ public class Game {
 			
 			currentPlayerTile.populate(currentPlayer);
 			
+			if(currentPlayer.playerIsBankrupt()) {
+				players.remove(currentPlayer.getId());
+				System.out.println(currentPlayer.getName() + " is kicked out!");
+			}
+			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(1000);
+			delay(10);
 			
 			
 			turnCounter++;
