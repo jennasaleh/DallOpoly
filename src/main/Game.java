@@ -36,7 +36,9 @@ public class Game {
 			
 			if(currentPlayer.playerIsBankrupt()) {
 				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
+				System.out.println("	Original size: " + players.size());
 				players.remove(currentPlayer.getId());
+				System.out.println("\n	New size: " + players.size());
 				
 			}
 			
