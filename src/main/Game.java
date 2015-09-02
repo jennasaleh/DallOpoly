@@ -23,33 +23,36 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
-			gui.draw(board,players);
-
-			
-			
 			Player currentPlayer = players.get(turnCounter % players.size());
 			
-			//Down to 1 Player?
-			//checkforWinner();
-			
-			currentPlayer.takeTurn();
-			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
-			
-			currentPlayerTile.populate(currentPlayer,bank);
-			
-			if(currentPlayer.playerIsBankrupt()) {
-				System.out.println("\n	*** " + currentPlayer.getName() + " is kicked out! ***\n");
-				System.out.println("	Original size: " + players.size());
-				players.remove(currentPlayer.getId());
-				System.out.println("\n	New size: " + players.size());
+			if(!currentPlayer.isOut){
+				currentPlayer.takeTurn();
+				Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 				
+				//if(currentPlayer.playerIsBankrupt()) {
+				//	currentPlayerTile.vacate();
+				//}
+				
+				currentPlayerTile.populate(currentPlayer,bank);
 			}
+			
+			
+			
+			String marker;
+			for(Player player : players) {
+				marker = "";
+				if(currentPlayer.getId() == player.getId()) {
+					marker = "*";
+				}
+				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t");
+			}
+			System.out.println();
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(1000);
+			delay(10);
 			
-			
+			gui.draw(board,players);
 			turnCounter++;
 		}
 		
@@ -71,10 +74,10 @@ public class Game {
 	private void setup() {
 		gui = new GUI();
 		
-		players.add(new Player("Player" + 1,1,"#00ff00"));
-		players.add(new Player("Player" + 2,2,"#ffff00"));
+		players.add(new Player("Player" + 1,1,"#800080"));
+		players.add(new Player("Player" + 2,2,"#996633"));
 		players.add(new Player("Player" + 3,3,"#ff0000"));
-		players.add(new Player("Player" + 4,4,"#00ffff"));
+		players.add(new Player("Player" + 4,4,"#00cc00"));
 		players.add(new Player("Player" + 5,5,"#0000ff"));
 		
 		bank = new Bank("Bank",-1,"#000000");

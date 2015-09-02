@@ -33,7 +33,7 @@ class GUI extends JFrame
 			
 			for(Player p : players) {
 				if(p.getPosition() == maper[counter]) {
-					markers += "<span style=\"color: " + p.getColor() + ";\">•</span>";
+					markers += "<span style=\"color: " + p.getColor() + "; \">•" + p.getId() + "</span>";
 				}
 			}
 			

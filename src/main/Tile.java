@@ -31,18 +31,21 @@ public class Tile {
 	public void action() {
 
 	}
+	
+	public void vacate() {
+		ownedBy = null;
+	}
 
 	public boolean populate(Player p,Bank b) {
 		//Available and able to buy
 		if((p.getNetworth() >= costToBuy)  && (ownedBy == null)) {
 			ownedBy = p;
-			System.out.println("	Tile " + tileId + " was purchased by " + p.getName());
 			p.charge(costToBuy,b);
 			return true;
 		} 
 
 		//Not available for purchase
-		if(p.getId() != ownedBy.getId()) {
+		if((p.getId() != ownedBy.getId()) && !p.playerIsBankrupt()) {
 			p.charge(calculateRent(),ownedBy);
 			
 			//Out of Money?

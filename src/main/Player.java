@@ -3,9 +3,8 @@ package main;
 //import com.sun.prism.paint.Color;
 
 public class Player {
-	//private static final int DEFAULT_START_VALUE = 2000;
-	//debug test
-	private static final int DEFAULT_START_VALUE = 2000;
+
+	private static final int DEFAULT_START_VALUE = 200;
 
 	private String color;
 
@@ -18,6 +17,8 @@ public class Player {
 	private int position;
 
 	private Die die;
+	
+	public boolean isOut = false;
 
 	public Player(String n,int i,String colorIn) {
 		color = colorIn;
@@ -48,7 +49,6 @@ public class Player {
 	// jenna
 	public void pay(int m) {
 		money = money + m;
-		System.out.println(" Player " + name + " was paid $" + m + " - new balance $" + money);
 	}
 
 	public String getName() {
@@ -70,14 +70,13 @@ public class Player {
 	public void takeTurn() {
 		int roll = die.roll();
 		position = (position + roll) % 40; 
-
-		System.out.println(name + " rolled a " + roll + " and is at position " + position);
 	}
 
 	public boolean playerIsBankrupt() {
 		if (getNetworth() < 0)
 		{
-			//System.out.println("Player " + playerId + " is Bankrupt");
+			isOut = true;
+			System.out.println("	Player " + playerId + " is Bankrupt");
 			return true;
 		}else
 		{
