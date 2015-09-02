@@ -3,6 +3,8 @@ package main;
 import java.util.ArrayList;
 
 public class Game {
+	private GUI gui;
+	
 	private ArrayList<Player> players = new ArrayList<Player>();
 	
 	private boolean gameWinner = false;
@@ -19,6 +21,9 @@ public class Game {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 		
 		while(!gameWinner) {
+			gui.draw(board);
+			
+			
 			Player currentPlayer = players.get(turnCounter % players.size());
 			currentPlayer.takeTurn();
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
@@ -27,7 +32,7 @@ public class Game {
 			
 			//checkForWin(players.get(turnCounter % players.size()), board);
 			
-			delay(10);
+			delay(1000);
 			
 			
 			turnCounter++;
@@ -49,9 +54,13 @@ public class Game {
 	}
 	
 	private void setup() {
-		for(int i = 0; i < 5; i++ ) {
-			players.add(new Player("Player" + i,i));
-		}
+		gui = new GUI();
+		
+		players.add(new Player("Player" + 1,1,"#00ff00"));
+		players.add(new Player("Player" + 2,2,"#ffff00"));
+		players.add(new Player("Player" + 3,3,"#ff0000"));
+		players.add(new Player("Player" + 4,4,"#00ffff"));
+		players.add(new Player("Player" + 5,5,"#0000ff"));
 		
 		board = new Board();
 	}

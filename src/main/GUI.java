@@ -18,20 +18,40 @@ class GUI extends JFrame
 
 		setLayout(new GridLayout(0,12));
 		
-		//add(new JLabel(new ImageIcon("C://Users/plk6272/Documents/GitHub/DallOpoly/images/board.jpg")), BorderLayout.CENTER);
-		//setLayout(new FlowLayout());
-			
-		//add(new JLabel(new ImageIcon("C://Users/plk6272/Documents/GitHub/DallOpoly/images/piece.png")), BorderLayout.NORTH);
-		//setLayout(new FlowLayout());
-		
+	}
+	
+	public void draw(Board b) {
+		this.getContentPane().removeAll();
+		int counter = 0;
+		String ownerColor = "";
 		for(int i = 0; i < 120; i++) {
-			if((i < 12) || (i > 107 && i < 120) || (0 == i % 12) || (0 == (i - 11) % 12))
-			add(new JButton("" + i));
+			
+			if(b.getTile(counter).getOwnedBy() != null ) {
+				ownerColor = b.getTile(counter).getOwnedBy().getColor();
+			} else {
+				ownerColor = "#000000";
+			}
+			
+			if((i < 12) || (i > 107 && i < 120) || (0 == i % 12) || (0 == (i - 11) % 12)) {
+				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 2px solid; width: 50px; " + ownerColor + ";\">" 
+			+ counter + "<br>" 
+			+ "<span style=\"color: #00ff00;\">•</span>" + "<br>" 
+			+ "$" + b.getTile(counter).getCost() +  "</div></html>");
+				
+				add(l);
+				counter++;
+			}
+			
 			else
 				add(new JLabel());
+			
+			
 		}
 		
-
-		setSize(800,600);
+		this.getContentPane().repaint();
+		setSize(899,899);
+		setSize(900,900);
 	}
+	
+	
 }

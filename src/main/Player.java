@@ -1,7 +1,11 @@
 package main;
 
+import com.sun.prism.paint.Color;
+
 public class Player {
 	private static final int DEFAULT_START_VALUE = 2000;
+	
+	private String color;
 	
 	private String name;
 	
@@ -13,7 +17,8 @@ public class Player {
 
 	private Die die;
 	
-	public Player(String n,int i) {
+	public Player(String n,int i,String colorIn) {
+		color = colorIn;
 		playerId = i;
 		name = n;
 		money = DEFAULT_START_VALUE;
@@ -26,6 +31,10 @@ public class Player {
 		
 		
 		System.out.println(name + " created.");
+	}
+	
+	public String getColor() {
+		return color;
 	}
 	
 	public void charge(int m,String type) {
