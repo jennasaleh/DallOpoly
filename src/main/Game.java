@@ -11,7 +11,6 @@ public class Game {
 	
 	private Board board;
 
-	//Darren
 	public Game() {
 		setup();
 	}
@@ -36,8 +35,6 @@ public class Game {
 		
 	}
 	
-	//check a merge
-	int i = 5;
 	
 	//public boolean checkForWin(Player p, Board b) {
 		
