@@ -35,6 +35,9 @@ public class Game {
 		
 	}
 	
+	//check a merge
+	int i = 5;
+	
 	//public boolean checkForWin(Player p, Board b) {
 		
 	//}
