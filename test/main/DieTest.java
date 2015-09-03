@@ -59,10 +59,10 @@ public class DieTest {
 				int rollTotal = diecup.total();
 				
 				if(rollTotal < diecup.MIN_TOTAL || rollTotal > diecup.MAX_TOTAL ) {
-					fail("Invalid Diecup Total Value");
+					fail("Invalid Diecup Total");
 				}
 			}
-		} catch (InvalidDieCupValueRange e) {
+		} catch (InvalidDiecupTotal e) {
 			fail(e.getLocalizedMessage());
 		}
 	}

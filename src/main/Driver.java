@@ -18,6 +18,8 @@ public class Driver {
 		public final static int MIN_TOTAL = 2;
 		public final static int MAX_TOTAL = 12;
 		
+		Die die = new Die();
+		
 		public int total() {
 			int dice1 = die.roll();
 			int dice2 = die.roll();
