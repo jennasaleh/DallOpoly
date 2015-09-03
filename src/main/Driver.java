@@ -11,22 +11,7 @@ public class Driver {
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.playGame();
-		
+
 	}
-	
-	public class Diecup {
-		public final static int MIN_TOTAL = 2;
-		public final static int MAX_TOTAL = 12;
-		
-		Die die = new Die();
-		
-		public int total() {
-			int dice1 = die.roll();
-			int dice2 = die.roll();
-			int total = dice1 + dice2;
-			return total;
-		}
-		
-	}
-	
+
 }
