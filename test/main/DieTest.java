@@ -32,6 +32,8 @@ public class DieTest {
 	}
 	
 	@Test
+	// Darren update Die Range
+	// New range 2-12 and not 1-6
 	public void testDieValueRange() {
 		try {
 			Die die = new Die();
@@ -39,7 +41,7 @@ public class DieTest {
 			for(int i = 0; i < 100; i++ ) {
 				int dieRoll = die.roll();
 				
-				if(dieRoll < 1 || dieRoll > die.DEFAULT_NUMBER_OF_FACES ) {
+				if(dieRoll < 2 || dieRoll > (2 * die.DEFAULT_NUMBER_OF_FACES )) {
 					fail("Invalid Die Values");
 				}
 			}
