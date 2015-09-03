@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import main.Driver.Diecup;
+
 
 public class DieTest {
 	
@@ -32,8 +34,6 @@ public class DieTest {
 	}
 	
 	@Test
-	// Darren update Die Range
-	// New range 2-12 and not 1-6
 	public void testDieValueRange() {
 		try {
 			Die die = new Die();
@@ -41,16 +41,29 @@ public class DieTest {
 			for(int i = 0; i < 100; i++ ) {
 				int dieRoll = die.roll();
 				
-				if(dieRoll < 2 || dieRoll > (2 * die.DEFAULT_NUMBER_OF_FACES )) {
+				if(dieRoll < 1 || dieRoll > die.DEFAULT_NUMBER_OF_FACES ) {
 					fail("Invalid Die Values");
 				}
 			}
 		} catch (TooFewDieFacesException e) {
 			fail(e.getLocalizedMessage());
 		}
-		
-		
-		
 	}
-
+		
+	@Test
+	public void testDieCupValueRange() {
+		try {
+			Diecup diecup = new Diecup();
+				
+			for(int i = 0; i < 100; i++ ) {
+				int rollTotal = diecup.total();
+				
+				if(rollTotal < diecup.MIN_TOTAL || rollTotal > diecup.MAX_TOTAL ) {
+					fail("Invalid Diecup Total Value");
+				}
+			}
+		} catch (InvalidDieCupValueRange e) {
+			fail(e.getLocalizedMessage());
+		}
+	}
 }
