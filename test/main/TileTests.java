@@ -30,8 +30,8 @@ public class TileTests {
 		
 		for(int i = -10000; i < 10000; i++ ) {
 			
-			Player player1 = new Player(null,0,null);
-			Player player2 = new Player(null,1,null);
+			Player player1 = new Player("One",0,null);
+			Player player2 = new Player("Two",1,null);
 
 			player1.charge(i, player2);
 			
