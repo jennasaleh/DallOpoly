@@ -32,7 +32,7 @@ class GUI extends JFrame
 			markers = "";
 			
 			for(Player p : players) {
-				if(p.getPosition() == maper[counter]) {
+				if(p.getPosition() == maper[counter] && !p.isOut) {
 					markers += "<span style=\"color: " + p.getColor() + "; \">•" + p.getId() + "</span>";
 				}
 			}
@@ -47,7 +47,7 @@ class GUI extends JFrame
 				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 2px solid " + ownerColor + "; width: 50px;\">" 
 			+ maper[counter] + "<br>" 
 			+ markers + "<br>" 
-			+ "$" + b.getTile(counter).getCost() +  "</div></html>");
+			+ "$" + b.getTile(maper[counter]).getCost() +  "</div></html>");
 				
 				add(l);
 				counter++;

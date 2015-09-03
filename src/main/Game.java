@@ -1,6 +1,8 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game {
 	private GUI gui;
@@ -10,6 +12,10 @@ public class Game {
 	private boolean gameWinner = false;
 
 	private int turnCounter = 0;
+	
+	private boolean debug = false;
+	
+	private int delayTime = 100;
 
 	private Board board;
 
@@ -22,23 +28,35 @@ public class Game {
 	public void playGame() {
 		System.out.println("*************************************\n**     Welcome to Dallopoly!!!     **\n*************************************");
 
-		while(!gameWinner) {
+		while(players.size() > 1) {
+			//Wait for User input
+			if(debug) {
+				try {
+					System.in.read();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			
+			//Get Current Player
 			Player currentPlayer = players.get(turnCounter % players.size());
+			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 
-			if(!currentPlayer.isOut){
+			if(currentPlayer.getNetworth() > 0 ){
 				currentPlayer.takeTurn();
-				Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
+				
 
 				if(currentPlayerTile.getOwnedBy() == null )
 					currentPlayerTile.populate(currentPlayer,bank);
 				else if(currentPlayerTile.getOwnedBy().getId() != currentPlayer.getId())
 					currentPlayerTile.host(currentPlayer);
 				
-				if(currentPlayer.playerIsBankrupt()) {
-					currentPlayerTile.vacate();
-				}
-
-				
+			} else {
+				currentPlayerTile.vacate();
+				players.remove(turnCounter % players.size());
+				System.out.println("\t" + currentPlayer.getName() + " out");
 			}
 
 
@@ -55,11 +73,13 @@ public class Game {
 
 			//checkForWin(players.get(turnCounter % players.size()), board);
 
-			delay(100);
+			delay(delayTime);
 
 			gui.draw(board,players);
 			turnCounter++;
 		}
+		
+		System.out.println(players.get(0).getName() + " winns!!!");
 
 	}
 
@@ -83,11 +103,11 @@ public class Game {
 	private void setup() {
 		gui = new GUI();
 
-		players.add(new Player("Player" + 1,1,"#800080"));
-		players.add(new Player("Player" + 2,2,"#996633"));
-		players.add(new Player("Player" + 3,3,"#ff0000"));
-		players.add(new Player("Player" + 4,4,"#00cc00"));
-		players.add(new Player("Player" + 5,5,"#0000ff"));
+		players.add(new Player("Player" + 0,0,"#800080"));
+		players.add(new Player("Player" + 1,1,"#996633"));
+		players.add(new Player("Player" + 2,2,"#ff0000"));
+		players.add(new Player("Player" + 3,3,"#00cc00"));
+		players.add(new Player("Player" + 4,4,"#0000ff"));
 
 		bank = new Bank("Bank",-1,"#000000");
 

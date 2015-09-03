@@ -4,7 +4,7 @@ package main;
 
 public class Player {
 
-	private static final int DEFAULT_START_VALUE = 2000;
+	private static final int DEFAULT_START_VALUE = 200;
 
 	private String color;
 
@@ -18,9 +18,10 @@ public class Player {
 
 	private Die die;
 	
-	public boolean isOut = false;
+	public boolean isOut;
 
 	public Player(String n,int i,String colorIn) {
+		isOut = false;
 		color = colorIn;
 		playerId = i;
 		name = n;
@@ -70,21 +71,6 @@ public class Player {
 	public void takeTurn() {
 		int roll = die.roll();
 		position = (position + roll) % 40; 
-	}
-
-	public boolean playerIsBankrupt() {
-		if (getNetworth() < 0)
-		{
-			isOut = true;
-			System.out.println("	Player " + playerId + " is Bankrupt");
-			return true;
-		}else
-		{
-			return false;
-		}
-
-
-
 	}
 
 }
