@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import main.Driver.Diecup;
+
 
 public class DieTest {
 	
@@ -46,9 +48,22 @@ public class DieTest {
 		} catch (TooFewDieFacesException e) {
 			fail(e.getLocalizedMessage());
 		}
-		
-		
-		
 	}
-
+		
+	@Test
+	public void testDieCupValueRange() {
+		try {
+			Diecup diecup = new Diecup();
+				
+			for(int i = 0; i < 100; i++ ) {
+				int rollTotal = diecup.total();
+				
+				if(rollTotal < diecup.MIN_TOTAL || rollTotal > diecup.MAX_TOTAL ) {
+					fail("Invalid Diecup Total");
+				}
+			}
+		} catch (InvalidDiecupTotal e) {
+			fail(e.getLocalizedMessage());
+		}
+	}
 }

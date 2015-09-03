@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Random;
+
 public class Driver {
 
 	public Driver() {
@@ -11,5 +13,20 @@ public class Driver {
 		game.playGame();
 		
 	}
-
+	
+	public class Diecup {
+		public final static int MIN_TOTAL = 2;
+		public final static int MAX_TOTAL = 12;
+		
+		Die die = new Die();
+		
+		public int total() {
+			int dice1 = die.roll();
+			int dice2 = die.roll();
+			int total = dice1 + dice2;
+			return total;
+		}
+		
+	}
+	
 }
