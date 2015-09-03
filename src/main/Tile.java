@@ -10,7 +10,7 @@ public class Tile {
 
 	private int houses = 0;
 
-	private int calculateRent() {
+	public int calculateRent() {
 		return (int)(costToBuy * 0.1) * (houses + 1);
 	}
 
@@ -36,13 +36,18 @@ public class Tile {
 		ownedBy = null;
 	}
 	
-	public boolean host(Player p) {
-		p.charge(calculateRent(), ownedBy);
+	public boolean visitedBy(Player p) {
+		if(p.getId() != ownedBy.getId()) {
+			p.charge(calculateRent(), ownedBy);
+		} else {
+			houses++;
+		}
+		
 		
 		return false;
 	}
 
-	public boolean populate(Player p,Bank b) {
+	public boolean buy(Player p,Bank b) {
 		//Available and able to buy
 		if(p.getNetworth() >= costToBuy ) {
 			ownedBy = p;

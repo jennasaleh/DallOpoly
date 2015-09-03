@@ -44,6 +44,34 @@ public class TileTests {
 	}
 	
 	@Test
+	public void testMultipleHouses() {
+		Tile t = new Tile(100,0);
+		Player p1 = new Player(null,0,null);
+		Player p2 = new Player(null,0,null);
+		Bank b = new Bank(null, 0, null);
+		
+		t.buy(p1, b);
+		
+		
+		if(p1.getNetworth() != 1900) {
+			fail("Player does not populate house");
+		}
+		
+		t.visitedBy(p2);
+		
+		if(p2.getNetworth() != 1990) {
+			fail("Player is not charged rent ");
+		}
+		
+		t.visitedBy(p1);
+		t.visitedBy(p2);
+		
+		if(p2.getNetworth() != 1970) {
+			fail("Player does not pay higher rent for multiple houses" + p2.getNetworth());
+		}
+	}
+	
+	@Test
 	public void testPurchase() {
 		
 		for(int i = -10; i < 1000; i++ ) {
@@ -51,7 +79,7 @@ public class TileTests {
 			Tile t1 = new Tile(i,0);
 			Bank b = new Bank(null, 0, null);
 			
-			t1.populate(p1, b);
+			t1.buy(p1, b);
 			
 			if(t1.getOwnedBy().getId() != p1.getId()){
 				fail("Purchase from bank not working");

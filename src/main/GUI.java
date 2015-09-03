@@ -33,7 +33,7 @@ class GUI extends JFrame
 			
 			for(Player p : players) {
 				if(p.getPosition() == maper[counter] && !p.isOut) {
-					markers += "<span style=\"color: " + p.getColor() + "; \">•" + p.getId() + "</span>";
+					markers += "<span style=\"color: " + p.getColor() + "; \">•" + p.getName() + "</span><br>";
 				}
 			}
 			
@@ -44,10 +44,10 @@ class GUI extends JFrame
 			}
 			
 			if((i < 12) || (i > 107 && i < 120) || (0 == i % 12) || (0 == (i - 11) % 12)) {
-				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 4px solid " + ownerColor + "; width: 50px;\">" 
-			+ maper[counter] + "<br>" 
-			+ markers + "<br>" 
-			+ "$" + b.getTile(maper[counter]).getCost() +  "</div></html>");
+				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 4px solid " + ownerColor + "; width: 65px; height: 65px;\">" 
+			+ maper[counter] + "<br>"
+		    + "$" + b.getTile(maper[counter]).getCost() + "<br>"
+			+ markers +  "</div></html>");
 				
 				add(l);
 				counter++;
@@ -59,7 +59,7 @@ class GUI extends JFrame
 			
 		}
 		
-		setSize(950,800);
+		setSize(1050,900);
 		this.getContentPane().revalidate();
 	}
 	

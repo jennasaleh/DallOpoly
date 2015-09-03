@@ -4,7 +4,7 @@ package main;
 
 public class Player {
 
-	public static final int DEFAULT_START_VALUE = 2000;
+	public static final int DEFAULT_START_VALUE = 1000;
 
 	private String color;
 

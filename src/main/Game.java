@@ -12,10 +12,10 @@ public class Game {
 	private boolean gameWinner = false;
 
 	private int turnCounter = 0;
-	
+
 	private boolean debug = false;
-	
-	private int delayTime = 1;
+
+	private int delayTime = 100;
 
 	private Board board;
 
@@ -38,28 +38,30 @@ public class Game {
 					e.printStackTrace();
 				}
 			}
-			
-			
+
+
 			//Get Current Player
 			Player currentPlayer = players.get(turnCounter % players.size());
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
 
 			if(currentPlayer.getNetworth() > 0 ){
 				currentPlayer.takeTurn();
-				
+
 
 				if(currentPlayerTile.getOwnedBy() == null )
-					currentPlayerTile.populate(currentPlayer,bank);
+					currentPlayerTile.buy(currentPlayer,bank);
 				else if(currentPlayerTile.getOwnedBy().getId() != currentPlayer.getId())
-					currentPlayerTile.host(currentPlayer);
-				
+					currentPlayerTile.visitedBy(currentPlayer);
+
 			} else {
-//				for(Tile t : board.tiles) {
-//					if(t.getOwnedBy().getId() == currentPlayer.getId()) {
-//						//t.vacate();
-//					}
-//				}
-				
+				for(Tile t : board.tiles) {
+					if(t.getOwnedBy() != null) {
+						if(t.getOwnedBy().getId() == currentPlayer.getId()) {
+							t.vacate();
+						}
+					}
+				}
+
 				players.remove(turnCounter % players.size());
 				System.out.println("\t" + currentPlayer.getName() + " out");
 			}
@@ -84,7 +86,7 @@ public class Game {
 			gui.draw(board,players);
 			turnCounter++;
 		}
-		
+
 		System.out.println(players.get(0).getName() + " winns!!!");
 
 	}
@@ -93,7 +95,7 @@ public class Game {
 	//public boolean checkForWin(Player p, Board b) {
 
 	//}
-	
+
 	public Board getBoard() {
 		return board;
 	}
