@@ -62,12 +62,14 @@ public class TileTests {
 
 	@Test
 	public void testFailToBuyLowMoney() {
-		try {
-			Tile currentPlayerTile = new Tile(200,0);
-			boolean result = currentPlayerTile.buy(currentPlayer);
-			Assert.assertTrue("Result was " + result, result);
-		} catch (PropertyBuyNoFunds e) {
-			fail(e.getLocalizedMessage());
+		for (int i = 2050; i < 2060; i++) {
+			Player player1 = new Player("One",0,null);
+			Bank bank = new Bank("Bank",0,null);
+			player1.charge(i,bank);
+			
+			if (player1.getNetworth() == player1.DEFAULT_START_VALUE - i) {
+				fail("Blocked Purchase not Working");
+			}
 		}
 	}
 
