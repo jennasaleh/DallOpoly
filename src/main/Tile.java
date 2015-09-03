@@ -37,7 +37,7 @@ public class Tile {
 	}
 	
 	public boolean host(Player p) {
-		p.charge(costToBuy, ownedBy);
+		p.charge(calculateRent(), ownedBy);
 		
 		return false;
 	}

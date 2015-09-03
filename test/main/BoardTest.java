@@ -22,7 +22,7 @@ public class BoardTest {
 			}
 		}
 		
-		Player pTest = new Player("name",1);
+		Player pTest = new Player("name",1, null);
 	}
 
 }

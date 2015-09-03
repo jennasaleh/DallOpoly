@@ -2,40 +2,64 @@ package main;
 
 import static org.junit.Assert.*;
 
+import java.util.Random;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.prism.paint.Color;
+
 
 public class TileTests {
-	
+
 	@Before
 	public void setUp() throws Exception {
-		
+
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
+
+	}
+
+	@Test
+	public void testPlayerCharge() {
+		
+		
+		for(int i = -10000; i < 10000; i++ ) {
+			
+			Player player1 = new Player(null,0,null);
+			Player player2 = new Player(null,1,null);
+
+			player1.charge(i, player2);
+			
+			if(player1.getNetworth() != player1.DEFAULT_START_VALUE - i && player2.getNetworth() != player2.DEFAULT_START_VALUE + i) {
+				fail("Charge not working");
+			}
+		}
+
 		
 	}
 	
 	@Test
-	public void testPlayerBuyFromPlayer() {
-		try {
-			String player1 = Player("One",1,null);
-			String player2 = Player("Two",2,null);
-			String expectNewBalance1 = 1950;
-			String expectNewBalance2 = 2050;
-			// One pays 50 to Two
-			p.charge(50,b);
+	public void testPurchase() {
+		
+		for(int i = -10; i < 1000; i++ ) {
+			Player p1 = new Player(null,0,null);
+			Tile t1 = new Tile(i,0);
+			Bank b = new Bank(null, 0, null);
 			
+			t1.populate(p1, b);
 			
-		} catch (PropertyBuyNoFunds e) {
-			fail(e.getLocalizedMessage());
+			if(t1.getOwnedBy().getId() != p1.getId()){
+				fail("Purchase from bank not working");
+			}
 		}
+		
 	}
-	
+
 	@Test
 	public void testFailToBuyLowMoney() {
 		try {
@@ -46,7 +70,7 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-	
+
 	@Test
 	public void testFailToBuyNotAvailable() {
 		try {
@@ -56,7 +80,7 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-	
+
 	@Test
 	public void testFailToBuyAlreadyOwned() {
 		try {
@@ -66,7 +90,7 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-	
+
 	@Test
 	public void testLimit40Tiles() {
 		try {
@@ -76,7 +100,7 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-	
+
 	@Test
 	public void testLimitMoneyBelowZero() {
 		try {
@@ -86,7 +110,7 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-	
+
 	@Test
 	public void testLimit4Houses() {
 		try {
@@ -96,5 +120,5 @@ public class TileTests {
 			fail(e.getLocalizedMessage());
 		}
 	}
-		
+
 }

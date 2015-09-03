@@ -40,11 +40,11 @@ class GUI extends JFrame
 			if(b.getTile(maper[counter]).getOwnedBy() != null ) {
 				ownerColor = b.getTile(maper[counter]).getOwnedBy().getColor();
 			} else {
-				ownerColor = "#000000";
+				ownerColor = "#cccccc";
 			}
 			
 			if((i < 12) || (i > 107 && i < 120) || (0 == i % 12) || (0 == (i - 11) % 12)) {
-				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 2px solid " + ownerColor + "; width: 50px;\">" 
+				JLabel l = new JLabel("<html><div style=\"text-align: center; border: 4px solid " + ownerColor + "; width: 50px;\">" 
 			+ maper[counter] + "<br>" 
 			+ markers + "<br>" 
 			+ "$" + b.getTile(maper[counter]).getCost() +  "</div></html>");

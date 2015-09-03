@@ -15,7 +15,7 @@ public class Game {
 	
 	private boolean debug = false;
 	
-	private int delayTime = 100;
+	private int delayTime = 1;
 
 	private Board board;
 
@@ -54,7 +54,12 @@ public class Game {
 					currentPlayerTile.host(currentPlayer);
 				
 			} else {
-				currentPlayerTile.vacate();
+//				for(Tile t : board.tiles) {
+//					if(t.getOwnedBy().getId() == currentPlayer.getId()) {
+//						//t.vacate();
+//					}
+//				}
+				
 				players.remove(turnCounter % players.size());
 				System.out.println("\t" + currentPlayer.getName() + " out");
 			}
@@ -62,12 +67,13 @@ public class Game {
 
 
 			String marker;
+			System.out.print(turnCounter + ") " );
 			for(Player player : players) {
 				marker = "";
 				if(currentPlayer.getId() == player.getId()) {
 					marker = "*";
 				}
-				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t");
+				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t\t");
 			}
 			System.out.println();
 
@@ -103,11 +109,11 @@ public class Game {
 	private void setup() {
 		gui = new GUI();
 
-		players.add(new Player("Player" + 0,0,"#800080"));
-		players.add(new Player("Player" + 1,1,"#996633"));
-		players.add(new Player("Player" + 2,2,"#ff0000"));
-		players.add(new Player("Player" + 3,3,"#00cc00"));
-		players.add(new Player("Player" + 4,4,"#0000ff"));
+		players.add(new Player("Mike",0,"#800080"));
+		players.add(new Player("Jenna",1,"#996633"));
+		players.add(new Player("Darren",2,"#ff0000"));
+		players.add(new Player("Joey",3,"#00cc00"));
+		players.add(new Player("Jon",4,"#0000ff"));
 
 		bank = new Bank("Bank",-1,"#000000");
 
