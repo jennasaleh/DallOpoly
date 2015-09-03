@@ -21,6 +21,22 @@ public class TileTests {
 	}
 	
 	@Test
+	public void testPlayerBuyFromPlayer() {
+		try {
+			String player1 = Player("One",1,null);
+			String player2 = Player("Two",2,null);
+			String expectNewBalance1 = 1950;
+			String expectNewBalance2 = 2050;
+			// One pays 50 to Two
+			p.charge(50,b);
+			
+			
+		} catch (PropertyBuyNoFunds e) {
+			fail(e.getLocalizedMessage());
+		}
+	}
+	
+	@Test
 	public void testFailToBuyLowMoney() {
 		try {
 			Tile currentPlayerTile = new Tile(200,0);
@@ -29,7 +45,6 @@ public class TileTests {
 		} catch (PropertyBuyNoFunds e) {
 			fail(e.getLocalizedMessage());
 		}
-		
 	}
 	
 	@Test
