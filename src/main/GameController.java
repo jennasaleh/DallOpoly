@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Game {
+public class GameController {
 	private GUI gui;
 
 	private ArrayList<Player> players = new ArrayList<Player>();
@@ -21,7 +21,7 @@ public class Game {
 
 	private Bank bank;
 
-	public Game() {
+	public GameController() {
 		setup();
 	}
 

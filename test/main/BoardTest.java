@@ -13,7 +13,7 @@ public class BoardTest {
 	
 	@Test
 	public void testBoardForNull() {
-		Game g = new Game();
+		GameController g = new GameController();
 		Board board = g.getBoard();
 		
 		for(Tile tile : board.tiles) {
