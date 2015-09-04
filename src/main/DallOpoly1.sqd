@@ -17512,7 +17512,7 @@
                                                 <source class="net.java.amateras.uml.sequencediagram.model.ActivationModel" reference="../../.."/>
                                                 <target class="net.java.amateras.uml.sequencediagram.model.ActivationModel" reference="../../../../../.."/>
                                                 <bendpoints/>
-                                                <name>  Player Position updates the GUI</name>
+                                                <name>    Player Position updates the GUI</name>
                                                 <direction>true</direction>
                                                 <order>11</order>
                                                 <oldOrder>11</oldOrder>
@@ -18495,7 +18495,7 @@
                                 <movable>true</movable>
                               </target>
                               <bendpoints/>
-                              <name>    Tile Color Ownership updates the GUI</name>
+                              <name>      Tile Ownership updates the Tile Color</name>
                               <direction>true</direction>
                               <order>10</order>
                               <oldOrder>10</oldOrder>
