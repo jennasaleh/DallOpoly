@@ -53,11 +53,28 @@ public class DieTest {
 		DieCup diecup = new DieCup();
 
 		for(int i = 0; i < 100; i++ ) {
-			int rollTotal = diecup.rollTwo();
+			int rollTotal = diecup.roll();
 
 			if(rollTotal < diecup.MIN_TOTAL || rollTotal > diecup.MAX_TOTAL ) {
-				fail("Invalid Diecup Total");
+				fail(rollTotal + "Invalid Diecup Total");
 			}
 		}
 	}
+	
+	@Test
+	public void StoresDieRoll() {
+		try {
+			Die die = new Die();
+		} catch (TooFewDieFacesException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Player player = new Player("TEST PLAYER1",0,"#ffffff");
+		
+		player.takeTurn();
+		
+	//	if(player.getRollHistory().get(0).getRoll1() >
+	}
 }
+

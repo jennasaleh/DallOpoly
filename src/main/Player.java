@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 //import com.sun.prism.paint.Color;
 
 public class Player {
@@ -16,22 +18,21 @@ public class Player {
 
 	private int position;
 
-	private Die die;
+	private DieCup die;
+	
+	private ArrayList<DieCup> rollHistory;
 	
 	public boolean isOut;
 
 	public Player(String n,int i,String colorIn) {
+		rollHistory = new ArrayList<DieCup>();
 		isOut = false;
 		color = colorIn;
 		playerId = i;
 		name = n;
 		money = DEFAULT_START_VALUE;
 		position = 0;
-		try {
-			die = new Die();
-		} catch(TooFewDieFacesException e) {
-			System.out.println(e.getLocalizedMessage());
-		}
+		die = new DieCup();
 
 
 		System.out.println(name + " created.");
@@ -39,6 +40,10 @@ public class Player {
 
 	public String getColor() {
 		return color;
+	}
+	
+	public ArrayList<DieCup> getRollHistory() {
+		return rollHistory;
 	}
 
 	// jenna
@@ -70,6 +75,7 @@ public class Player {
 
 	public void takeTurn() {
 		int roll = die.roll();
+		rollHistory.add(die);
 		position = (position + roll) % 40; 
 	}
 
