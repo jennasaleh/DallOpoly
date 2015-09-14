@@ -7,6 +7,6 @@ public class Bank extends Player {
 	public Bank(String n,int i,String colorIn) {
 		super(n,i,colorIn);
 		super.money = DEFAULT_START_VALUE;
-	}
+	} 
 	
 }
