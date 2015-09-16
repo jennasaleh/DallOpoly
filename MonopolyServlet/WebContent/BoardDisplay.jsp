@@ -7,15 +7,19 @@
 <title>Insert title here</title>
 <style>
 	.BlankSquare{
-		width: 75px;
+		width: 675px;
 		height: 75px;
 		background-color: #fff;
+		display: table-cell;
+		border-style: solid;
+		border-width: 1px;
 	}
 
 	.PropertySquare{
 		width: 75px;
 		height: 75px;
 		background-color: #000;
+		display: table-cell;
 
 		display: table-cell;
 		text-align: center;
@@ -26,16 +30,26 @@
 	}
 </style>
 </head>
+<%!GameState gs; %>
+<%gs = (GameState)request.getAttribute("GameState");%>
 <body>
-	<table>
-		<tr>
-			<td><div class="PropertySquare">&#149</div></td>
-			<td><div class="BlankSquare"></div></td>
-			<td><div class="BlankSquare"></div></td>
-			<td><div class="PropertySquare"></div></td>
-		</tr>
-	</table>
-	<%GameState gs = (GameState)request.getAttribute("GameState");%>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<div class="PropertySquare"></div>
+	<br>
+	<div class="PropertySquare"></div>
+	<div class="BlankSquare"></div>
+	<div class="PropertySquare"></div>
+	
+	<div class="BlankSquare"></div>
 	<label><%=gs.dummy %></label>
 </body>
 </html>

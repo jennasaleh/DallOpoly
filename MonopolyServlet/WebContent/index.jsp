@@ -19,7 +19,5 @@
 		<br>
 		<input type="submit" value="Submit">
 	</form>
-	
-	<%@include file="BoardDisplay.jsp" %>
 </body>
 </html>
