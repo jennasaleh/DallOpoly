@@ -3,18 +3,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+body {text-align:center;} 
+body {background-color:backround-color: lightblue;}
+input [type = 'text'] {font-size:24px;}
+input [type = 'radio'] {font-size:24px;}
+input [type = 'submit'] {font-size:24px;}
+</style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>The Monopoly Game</title>
 </head>
+
 <body>
-		<h1>The Monopoly Game</h1>
+		<h1><font color = "purple", size = "6">The Monopoly Game</font></h1>
+		
 	<form action="Monopoly" method="post">
 		Select Number of Players: 
 		<input type="radio" name="numOfPlayers" value="2" checked>  2 
 		<input type="radio" name="numOfPlayers" value="3"> 3
 		<input type="radio" name="numOfPlayers" value="4"> 4
 		<br>
-		Enter starting money:
+		Enter preferred starting amount of money:
 		<input type="text" name="startingMoney">
 		<br>
 		<input type="submit" value="Submit">
