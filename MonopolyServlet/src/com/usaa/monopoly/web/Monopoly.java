@@ -7,43 +7,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Monopoly
- */
 @WebServlet("/Monopoly")
 public class Monopoly extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
+	private GameController game = new GameController();	
+	
     public Monopoly() {
         // TODO Auto-generated constructor stub
     }
+    
+    public void init() {
+    	
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//TODO page needs to be constructed in html
-		//TODO if game is over, deconstruct page, redirect to splash screen
-		
-		ConstructHtmlBoard b = new ConstructHtmlBoard();
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		game.playGame(1);
+		response.getWriter().append("Number of turns: " + game.getTurnCounter());
 		response.setContentType("text/html");
-		response.getWriter().append(b.blankBoard());
+		
+		//put the gameboard data object in to an attribute so it can be accessed in jsp
+		request.setAttribute("GameState", game.getGameState());
+		request.getRequestDispatcher("/board/").forward(request, response);
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		//to get request parameters, name is in the html form name   request.getParameter("numOfPlayers");
-		// TODO get post information
-		//TODO start game, construct etc
-		//TODO serve page via doGet method call
+		if(game.gameIsOver) {
+			game = new GameController();
+		}
 		doGet(request, response);
 		
 	}

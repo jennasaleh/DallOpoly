@@ -9,14 +9,21 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>MonopolyServlet</servlet-name>
+    <servlet-class>com.usaa.monopoly.web.Monopoly</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MonopolyServlet</servlet-name>
+    <url-pattern>/monopoly</url-pattern>
+  </servlet-mapping>
   
   <servlet>
-  	<servlet-name>MonopolyServlet</servlet-name>
-  	<servlet-class>com.usaa.monopoly.web.Monopoly</servlet-class>
+  	<servlet-name>Board</servlet-name>
+  	<jsp-file>/BoardDisplay.jsp</jsp-file>
   </servlet>
-  
-  <servlet-mapping>	
-  	<servlet-name>MonopolyServlet</servlet-name>
-  	<url-pattern>/monopoly</url-pattern>
+  <servlet-mapping>
+  	<servlet-name>Board</servlet-name>
+  	<url-pattern>/board/</url-pattern>
   </servlet-mapping>
 </web-app>
