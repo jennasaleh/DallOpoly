@@ -26,9 +26,13 @@
 		font-size: xx-large;
 	}
 	
-	br {
-		display: block;
-		margin: 0px 0;
+	.PlayerInfo{
+   		width: auto;
+    	color: white;
+    	font-family: arial;
+    	font-size: xx-large;
+    	padding-left: .5%;
+    	padding-right: .5%;
 	}
 </style>
 </head>
@@ -74,7 +78,16 @@
 		tile = 0;
 		%>
 	</table>
-	
+	<br>
+	<span class="PlayerInfo" style="background-color: <%=gs.playerColors[0] %>"><%=gs.playerNames[0] %> has $<%=gs.playerMoney[0]%></span>
+	<br>
+	<span class="PlayerInfo" style="background-color: <%=gs.playerColors[1] %>"><%=gs.playerNames[1] %> has $<%=gs.playerMoney[1]%></span>
+	<br>
+	<span class="PlayerInfo" style="background-color: <%=gs.playerColors[2] %>"><%=gs.playerNames[2] %> has $<%=gs.playerMoney[2]%></span>
+	<br>
+	<span class="PlayerInfo" style="background-color: <%=gs.playerColors[3] %>"><%=gs.playerNames[3] %> has $<%=gs.playerMoney[3]%></span>
+	<br>
+	<span class="PlayerInfo" style="background-color: <%=gs.playerColors[4] %>"><%=gs.playerNames[4] %> has $<%=gs.playerMoney[4]%></span>
 	
 	
 </body>

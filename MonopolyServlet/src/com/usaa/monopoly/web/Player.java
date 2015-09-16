@@ -78,5 +78,5 @@ public class Player {
 		rollHistory.add(die);
 		position = (position + roll) % 40; 
 	}
-
+	
 }

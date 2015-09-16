@@ -36,6 +36,7 @@ public class Monopoly extends HttpServlet {
 		if(game.gameIsOver) {
 			game = new GameController();
 		}
+		game = new GameController();
 		doGet(request, response);
 		
 	}
