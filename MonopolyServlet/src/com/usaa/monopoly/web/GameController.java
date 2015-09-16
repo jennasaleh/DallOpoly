@@ -179,6 +179,7 @@ public class GameController {
 	//TODO fill this out
 	public GameState getGameState() {
 		GameState gs = new GameState();
+		gs.fillGameColors(board, players);
 		return gs;
 	}
 }

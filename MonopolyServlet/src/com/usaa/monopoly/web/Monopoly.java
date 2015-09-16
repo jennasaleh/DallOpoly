@@ -24,7 +24,8 @@ public class Monopoly extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		//put the gameboard data object in to an attribute so it can be accessed in jsp
-		game.playGame(20);
+		
+		game.playGame(15);
 		request.setAttribute("GameState", game.getGameState());
 		request.getRequestDispatcher("/board/").forward(request, response);
 		
@@ -38,5 +39,6 @@ public class Monopoly extends HttpServlet {
 		doGet(request, response);
 		
 	}
-
+	
+	
 }
