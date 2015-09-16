@@ -5,10 +5,10 @@
 <head>
 <style>
 body {text-align:center;} 
-body {background-color:backround-color: lightblue;}
-input [type = 'text'] {font-size:24px;}
-input [type = 'radio'] {font-size:24px;}
-input [type = 'submit'] {font-size:24px;}
+body {background-color: lightblue;}
+input [type = 'text'] {font-size:40px;}
+input [type = 'radio'] {font-size:40px;}
+input [type = 'submit'] {font-size:40px;}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -16,7 +16,7 @@ input [type = 'submit'] {font-size:24px;}
 </head>
 
 <body>
-		<h1><font color = "purple", size = "6">The Monopoly Game</font></h1>
+		<h1><font color = "purple", size = "15">The Monopoly Game!</font></h1>
 		
 	<form action="Monopoly" method="post">
 		Select Number of Players: 
@@ -29,5 +29,8 @@ input [type = 'submit'] {font-size:24px;}
 		<br>
 		<input type="submit" value="Submit">
 	</form>
+	
+	<img src = "mguy.jpg" alt = "monopolyGuy" style = "width:687px;height:500px;">
+	
 </body>
 </html>
