@@ -22,11 +22,9 @@ public class Monopoly extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		game.playGame(1);
-		response.getWriter().append("Number of turns: " + game.getTurnCounter());
-		response.setContentType("text/html");
 		
 		//put the gameboard data object in to an attribute so it can be accessed in jsp
+		game.playGame(20);
 		request.setAttribute("GameState", game.getGameState());
 		request.getRequestDispatcher("/board/").forward(request, response);
 		

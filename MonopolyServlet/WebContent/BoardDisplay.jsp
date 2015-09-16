@@ -35,6 +35,7 @@
 			<td><div class="PropertySquare"></div></td>
 		</tr>
 	</table>
-	<label><%GameState gs = (GameState)request.getAttribute("GameState");%></label>
+	<%GameState gs = (GameState)request.getAttribute("GameState");%>
+	<label><%=gs.dummy %></label>
 </body>
 </html>

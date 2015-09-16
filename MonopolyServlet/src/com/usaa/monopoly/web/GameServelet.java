@@ -14,19 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/GameServelet")
 public class GameServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private GameController game;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public GameServelet() {
         super();
-        startGame();
-        // TODO Auto-generated constructor stub
-    }
-    
-    public void init() {
-    	
+        
     }
 
 	/**
@@ -34,7 +28,6 @@ public class GameServelet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -44,17 +37,4 @@ public class GameServelet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	public void startGame() {
-		if(game != null) {
-			
-		}
-		
-		else {
-			game = new GameController();
-			game.playGame();
-		}
-		
-	}
-
 }

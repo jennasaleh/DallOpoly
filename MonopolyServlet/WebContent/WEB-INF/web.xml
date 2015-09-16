@@ -26,4 +26,13 @@
   	<servlet-name>Board</servlet-name>
   	<url-pattern>/board/</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Game</servlet-name>
+  	<servlet-class>com.usaa.monopoly.web.GameServelet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Game</servlet-name>
+  	<url-pattern>/game/</url-pattern>
+  </servlet-mapping>
 </web-app>
