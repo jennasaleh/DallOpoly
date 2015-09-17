@@ -1,20 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="com.usaa.monopoly.web.GameState"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>DisplayBoard</title>
-
 <style>
-
 body {text-align:center;} 
-body {background-color: #C6DEFF;}
-input [type = 'text'] {font-size:25px;}
-input [type = 'radio'] {font-size:70x;}
+body {background-color: lightblue;}
+input [type = 'text'] {font-size:40px;}
+input [type = 'radio'] {font-size:40px;}
 input [type = 'submit'] {font-size:40px;}
 
-	.BlankSquare{
+.BlankSquare{
 		width: 75px;
 		height: 75px;
 		background-color: #fff;
@@ -51,11 +47,14 @@ input [type = 'submit'] {font-size:40px;}
 	
 	
 	
+
 </style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>The Monopoly Game</title>
 </head>
 
 <body>
-
 		<h1><font color = "#1589FF" size = "30" face = "arial"><u>The Monopoly Game!</u></font></h1>
 		
 		<div class="rectangle">
@@ -82,5 +81,6 @@ input [type = 'submit'] {font-size:40px;}
 		<input type="submit" value="Submit">
 	</form>
 	
+		
 </body>
 </html>
